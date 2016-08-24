@@ -19,10 +19,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Write a short comment describing this function
 
-cachemean <- function(x, ...) {
-        m <- x$getCache()
+cacheSolve <- function(x, ...) {
+        m <- x$getInverse()
         if(!is.null(m)) {
-                message("getting data")
+                message("getting inversed data")
                 return(m)
         }
         data <- x$get()
