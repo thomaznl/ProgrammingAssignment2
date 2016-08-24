@@ -7,13 +7,13 @@
 
 makeCacheMatrix <- function(x = matrix()) {
         d <- NULL
-        set <- function(y) {
+        set <- function(y) { #check nll values
         #check if it is inverse
                 x <<- y
                 d <<- NULL
         }
         get <- function() x
-        setCache <- function(solve) d <<- solve
+        setCache <- function(solve) d <<- solve #get inverse
         getCache <- function() d
         list(set = set, get = get,
              setCache = setCache,
@@ -29,9 +29,9 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
 #return inverse of x
         d <- x$getInverse()
-        if(!is.null(d)) {
+        if(!is.null(d)) { #check null values
                 message("getting inversed data")
-                return(d)
+                return(d) #get inversed
         }
         data <- x$get()
         d <- solve(data, ...)
